@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 12:33:49 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/05/19 09:16:32 by helvi            ###   ########.fr       */
+/*   Updated: 2020/09/25 13:49:24 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ size_t	ft_strlen(char const *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
-		i++;
+	if (s)
+	{
+		while (s[i] != '\0')
+			i++;
+	}
 	return (i);
 }

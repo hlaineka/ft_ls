@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 11:53:03 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/24 16:52:32 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/25 13:56:26 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,5 +141,5 @@ int				main(int argc, char **argv)
 	first_directory = read_argv(argc, i, params, argv);
 	sort_directories(&first_directory, params);
 	print_all(params, first_directory);
-	return (0);
+	exit(0);
 }
