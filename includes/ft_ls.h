@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 16:15:23 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/24 12:38:52 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/28 15:22:34 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct	s_directory
 typedef struct	s_file
 {
 	char		*name;
+	char		*link_name;
 	int			is_link;
 	struct stat	*stat_info;
 	int			is_dir;
@@ -102,8 +103,7 @@ void			add_file(t_file *new_file, t_params *params,
 				t_list *first_directory);
 void			add_to_list(struct dirent *dirent_buf, struct stat *stat_buf,
 				t_params *params, t_list **first_directory);
-void			read_link(char *file_name, t_file *new_file,
-				struct stat *stat_buf);
+void			read_link(char *file_name, t_file *new_file);
 void			find_dir_add_file(t_list **first_directory, t_file *new_file,
 				t_params *params);
 int				handle_file_param(char *file_name, t_list **first_directory,

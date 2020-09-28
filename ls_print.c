@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 16:13:13 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/24 12:18:43 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/28 16:03:31 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,13 +107,20 @@ static void	print_filelist(t_params *params, t_directory *directory)
 {
 	t_file	*temp_file;
 	t_list	*temp_list;
+	char	*temp_pathname;
 
 	temp_list = directory->first_file;
 	while (temp_list)
 	{
 		temp_file = (t_file*)temp_list->content;
+		if (!ft_strequ(directory->name, ""))
+			temp_pathname = ft_strjoin(directory->name, temp_file->name);
+		else
+			temp_pathname = ft_strdup(temp_file->name);
+		read_link(temp_pathname, temp_file);
+		free(temp_pathname);
 		if (params->l && temp_file->stat_info)
-			print_l(temp_file->name, temp_file->stat_info, directory,
+			print_l(temp_file->link_name, temp_file->stat_info, directory,
 			temp_file->is_link);
 		else
 			ft_printf("%s\n", temp_file->name);

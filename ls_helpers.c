@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 15:25:02 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/24 12:48:05 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/28 15:28:50 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,6 @@ void	handle_dir_error(char *directory_name, t_list **first_directory)
 	new_directory->error_message = ft_strdup(error_message);
 	ft_lstnewtoend(new_directory, sizeof(t_directory), first_directory);
 	free(error_message);
+	free(error_str);
+	free(new_directory);
 }

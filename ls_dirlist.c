@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 15:27:33 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/25 13:52:15 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/28 15:49:27 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,9 +146,11 @@ void		read_directory(char *directory_name, t_params *params,
 	if (S_ISLNK(stat_buf->st_mode))
 	{
 		if (caller && params->l)
+		{
 			handle_file_param(directory_name, first_directory, params);
-		free(stat_buf);
-		return ;
+			free(stat_buf);
+			return ;
+		}
 	}
 	if (ft_strlast(directory_name) != '/')
 		new_name = ft_str_char_join('/', directory_name);
