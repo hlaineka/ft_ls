@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 11:53:03 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/28 16:25:34 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/28 18:39:01 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,12 @@ static void		sort_directories(t_list **first_directory, t_params *params)
 	t_list		*temp_dir_list;
 	t_directory	*temp_directory;
 
+	temp_dir_list = *first_directory;
+	temp_directory = (t_directory*)temp_dir_list->content;
 	if (params->t)
 		ft_lst_merge_sort(first_directory, &sort_dir_time);
 	else
 		ft_lst_merge_sort(first_directory, &sort_dir_name);
-	temp_dir_list = *first_directory;
 	while (temp_dir_list)
 	{
 		temp_directory = (t_directory*)temp_dir_list->content;

@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 16:18:09 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/01 16:18:36 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/28 19:54:36 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_list	*ft_lst_reverse(t_list **first)
 	t_list	*temp_this;
 	t_list	*temp_next;
 
+	if (!*first)
+		return (NULL);
 	temp_previous = *first;
 	temp_this = temp_previous->next;
 	temp_previous->next = NULL;
