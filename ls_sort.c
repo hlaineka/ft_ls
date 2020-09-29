@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 16:16:25 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/29 13:09:02 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 14:20:18 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,7 @@ void	reverse_lists(t_list **first_directory)
 	if ((ft_strequ(temp_dir->name, "") || ft_strequ(temp_dir->name, "./"))
 		&& temp_dir_list->next)
 	{
-		temp_dir_list = temp_dir_list->next;
-		temp_dir = (t_directory*)temp_dir_list->content;
+		temp_dir = (t_directory*)temp_dir_list->next->content;
 		if (ft_strequ(temp_dir->name, "") || ft_strequ(temp_dir->name, "./"))
 			temp_dir_list = temp_dir_list->next;
 		temp_dir_list->next = ft_lst_reverse(&temp_dir_list->next);
