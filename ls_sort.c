@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 16:16:25 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/28 20:12:24 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 10:55:51 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		sort_dir_time(t_list *a, t_list *b)
 		return (TRUE);
 	if (ft_strequ(b_dir->name, ""))
 		return (FALSE);
-	if  (ft_strequ(a_dir->name, "./") || ft_strequ(a_dir->name, ".") 
+	if (ft_strequ(a_dir->name, "./") || ft_strequ(a_dir->name, ".")
 		|| !a_dir->stat_info)
 		return (TRUE);
 	if (ft_strequ(b_dir->name, "./") || ft_strequ(b_dir->name, ".")
@@ -115,31 +115,28 @@ int		sort_file_time(t_list *a, t_list *b)
 void	reverse_lists(t_list **first_directory)
 {
 	t_list		*temp_dir_list;
-	t_list		*temp_dir_list_org;
-	t_directory	*temp_directory;
+	t_directory	*temp_dir;
 
 	if (!*first_directory)
 		return ;
 	temp_dir_list = *first_directory;
-	temp_directory = (t_directory*)temp_dir_list->content;
-	if (ft_strequ(temp_directory->name, "") || ft_strequ(temp_directory->name, "./"))
+	temp_dir = (t_directory*)temp_dir_list->content;
+	if (ft_strequ(temp_dir->name, "") || ft_strequ(temp_dir->name, "./"))
 	{
-		temp_dir_list_org = temp_dir_list->next;
-		temp_directory = (t_directory*)temp_dir_list_org->content;
-		if (ft_strequ(temp_directory->name, "") || ft_strequ(temp_directory->name, "./"))
-		{
-			temp_dir_list_org = temp_dir_list_org->next;
-		}
-		temp_dir_list_org->next = ft_lst_reverse(&temp_dir_list_org->next);
+		temp_dir_list = temp_dir_list->next;
+		temp_dir = (t_directory*)temp_dir_list->content;
+		if (ft_strequ(temp_dir->name, "") || ft_strequ(temp_dir->name, "./"))
+			temp_dir_list = temp_dir_list->next;
+		temp_dir_list->next = ft_lst_reverse(&temp_dir_list->next);
 	}
 	else
-		ft_lst_reverse(&temp_dir_list);
+		ft_lst_reverse(first_directory);
 	temp_dir_list = *first_directory;
 	while (temp_dir_list)
 	{
-		temp_directory = (t_directory*)temp_dir_list->content;
-		if (temp_directory->first_file)
-			ft_lst_reverse(&temp_directory->first_file);
+		temp_dir = (t_directory*)temp_dir_list->content;
+		if (temp_dir->first_file)
+			ft_lst_reverse(&temp_dir->first_file);
 		temp_dir_list = temp_dir_list->next;
 	}
 }

@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strnchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/28 12:12:38 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/26 12:11:40 by hlaineka         ###   ########.fr       */
+/*   Created: 2020/09/29 10:29:34 by hlaineka          #+#    #+#             */
+/*   Updated: 2020/09/29 10:30:34 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
 /*
-** compares str1 to str2 and return 0 if they are aqual or int representing
-** the difference.
+** returns a pointer to the last occurance of c in src
 */
 
-int	ft_strcmp(const char *str1, const char *str2)
+char	*ft_strnchr(const char *src, int c)
 {
 	int		i;
+	char	temp_c;
 
-	i = 0;
-	if (!str1 && !str2)
-		return (0);
-	if (!str1)
-		return (0 - str2[0]);
-	if (!str2)
-		return (str1[0]);
-	while (str1[i] != '\0' && str2[i] != '\0' && str1[i] == str2[i])
-		i++;
-	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+	i = ft_strlen(src) - 1;
+	temp_c = c;
+	if (src)
+	{
+		while (i >= 0)
+		{
+			if (src[i] == c)
+				return (char*)&src[i];
+			i--;
+		}
+		if (src[i] == c)
+			return (char*)&src[i];
+	}
+	return (NULL);
 }

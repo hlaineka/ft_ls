@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 16:15:23 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/28 15:22:34 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 11:09:16 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,5 +145,6 @@ void			handle_file_error(char *file_name, t_params *params,
 				t_list **first_directory);
 void			handle_dir_error(char *directory_name,
 				t_list **first_directory);
+char			*check_name(char *name);
 
 #endif

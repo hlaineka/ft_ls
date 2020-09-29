@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 15:25:02 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/28 15:28:50 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 10:42:59 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,19 @@ void	handle_file_error(char *file_name, t_params *params,
 	t_file	*new_file;
 	char	*error_message;
 	char	*error_str;
+	char	*temp;
 
 	error_message = ft_strjoin("ft_ls: ", file_name);
 	error_message = ft_strjoin_frees1(error_message, ": ");
 	error_str = ft_strdup(strerror(errno));
 	error_message = ft_strjoin_frees1(error_message, error_str);
+	temp = NULL;
+	if (ft_strlast(error_message) == ':')
+	{
+		temp = ft_strsub(file_name, 0, ft_strlen(file_name) - 1);
+		free(error_message);
+		error_message = ft_strdup(temp);
+	}
 	new_file = (t_file*)malloc(sizeof(t_file));
 	new_file->error_message = ft_strdup(error_message);
 	new_file->name = ft_strdup(file_name);
@@ -78,6 +86,7 @@ void	handle_file_error(char *file_name, t_params *params,
 	add_file(new_file, params, *first_directory);
 	free(error_message);
 	free(error_str);
+	free(temp);
 }
 
 /*

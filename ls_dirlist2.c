@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 10:23:24 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/28 16:25:20 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 10:35:44 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		read_link(char *file_name, t_file *file)
 	if ((i = readlink(file_name, link_name, 2000)) > -1)
 	{
 		link_name[i] = '\0';
-		file->link_name = ft_strjoin3(file_name, " -> ", link_name);
+		file->link_name = ft_strjoin3(file->name, " -> ", link_name);
 		file->is_link = TRUE;
 	}
 	else

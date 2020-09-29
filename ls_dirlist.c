@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 15:27:33 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/28 15:49:27 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 11:12:48 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,7 @@ static void	recursive_caller(t_params *params, t_list **first_directory)
 	{
 		temp_file = (t_file*)temp_file_list->content;
 		if (temp_file->is_dir && !ft_strequ(temp_file->name, ".")
-		&& !ft_strequ(temp_file->name, "./")
-		&& !ft_strequ(temp_file->name, "..")
-		&& !ft_strequ(temp_file->name, "../") && temp_file->stat_info)
+		&& !ft_strequ(temp_file->name, "..") && temp_file->stat_info)
 		{
 			temp_name = ft_strjoin(path, temp_file->name);
 			read_directory(temp_name, params, first_directory, 0);
@@ -133,9 +131,8 @@ void		read_directory(char *directory_name, t_params *params,
 			t_list **first_directory, int caller)
 {
 	struct stat		*stat_buf;
-	char			*new_name;
+	char			*temp_name;
 
-	new_name = NULL;
 	stat_buf = (struct stat*)malloc(sizeof(struct stat));
 	if (-1 == lstat(directory_name, stat_buf))
 	{
@@ -152,12 +149,9 @@ void		read_directory(char *directory_name, t_params *params,
 			return ;
 		}
 	}
-	if (ft_strlast(directory_name) != '/')
-		new_name = ft_str_char_join('/', directory_name);
-	else
-		new_name = ft_strdup(directory_name);	
-	read_dirp(stat_buf, new_name, params, first_directory);
-	free(new_name);
+	temp_name = check_name(directory_name);
+	read_dirp(stat_buf, temp_name, params, first_directory);
 	if (params->rr && !S_ISLNK(stat_buf->st_mode))
 		recursive_caller(params, first_directory);
+	free(temp_name);
 }
