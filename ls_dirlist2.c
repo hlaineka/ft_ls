@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 10:23:24 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/29 10:35:44 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 12:51:30 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void		find_dir_add_file(t_list **first_directory, t_file *new_file,
 		add_new_dir(first_directory, new_file, params);
 	else
 	{
+		temp_directory = (t_directory*)empty_name_dir->content;
 		if (params->l)
 			check_field_width(new_file->stat_info, temp_directory);
 		ft_lstnewtoend(new_file, sizeof(t_file), &temp_directory->first_file);

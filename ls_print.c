@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 16:13:13 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/28 16:03:31 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 12:23:29 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,12 @@ static void	print_l(char *file_name, struct stat *buffer,
 	ft_printf("%s ", temp);
 	free(temp);
 	ft_printf("%*d ", directory->links_field, buffer->st_nlink);
-	ft_printf("%-*s  ", directory->owner_field, getowner(buffer));
-	ft_printf("%-*s  ", directory->group_field, getgroup(buffer));
+	temp = getowner(buffer);
+	ft_printf("%-*s  ", directory->owner_field, temp);
+	free(temp);
+	temp = getgroup(buffer);
+	ft_printf("%-*s  ", directory->group_field, temp);
+	free(temp);
 	ft_printf("%*d ", directory->size_field, buffer->st_size);
 	temp = gettime(buffer);
 	ft_printf("%s ", temp);

@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 15:27:33 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/29 11:12:48 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 12:46:49 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,11 @@ void		read_directory(char *directory_name, t_params *params,
 	stat_buf = (struct stat*)malloc(sizeof(struct stat));
 	if (-1 == lstat(directory_name, stat_buf))
 	{
+		if (ft_strchr(directory_name, '.'))
+		{
+			handle_file_param(directory_name, first_directory, params);
+			return ;
+		}
 		handle_dir_error(directory_name, first_directory);
 		free(stat_buf);
 		return ;
