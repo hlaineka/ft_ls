@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 15:27:33 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/29 12:46:49 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 15:20:31 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,22 +137,17 @@ void		read_directory(char *directory_name, t_params *params,
 	if (-1 == lstat(directory_name, stat_buf))
 	{
 		if (ft_strchr(directory_name, '.'))
-		{
 			handle_file_param(directory_name, first_directory, params);
-			return ;
-		}
-		handle_dir_error(directory_name, first_directory);
+		else
+			handle_dir_error(directory_name, first_directory);
 		free(stat_buf);
 		return ;
 	}
-	if (S_ISLNK(stat_buf->st_mode))
+	if (S_ISLNK(stat_buf->st_mode) && caller && params->l)
 	{
-		if (caller && params->l)
-		{
-			handle_file_param(directory_name, first_directory, params);
-			free(stat_buf);
-			return ;
-		}
+		handle_file_param(directory_name, first_directory, params);
+		free(stat_buf);
+		return ;
 	}
 	temp_name = check_name(directory_name);
 	read_dirp(stat_buf, temp_name, params, first_directory);

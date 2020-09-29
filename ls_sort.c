@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 16:16:25 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/29 14:20:18 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 15:23:25 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,19 @@ int		sort_dir_time(t_list *a, t_list *b)
 		return (TRUE);
 	if (ft_strequ(b_dir->name, ""))
 		return (FALSE);
-	if (ft_strequ(a_dir->name, "./") || ft_strequ(a_dir->name, ".")
-		|| !a_dir->stat_info)
+	if (ft_strequ(a_dir->name, "./") || ft_strequ(a_dir->name, "."))
 		return (TRUE);
-	if (ft_strequ(b_dir->name, "./") || ft_strequ(b_dir->name, ".")
-		|| !b_dir->stat_info)
+	if (ft_strequ(b_dir->name, "./") || ft_strequ(b_dir->name, "."))
 		return (FALSE);
-	if (a_dir->stat_info->st_mtime > b_dir->stat_info->st_mtime)
+	if ((!a_dir->stat_info || !b_dir->stat_info)
+	&& ft_strcmp(a_dir->name, b_dir->name) < 0)
 		return (TRUE);
-	if (a_dir->stat_info->st_mtime == b_dir->stat_info->st_mtime)
+	else
 	{
-		if (ft_strcmp(a_dir->name, b_dir->name) < 0)
+		if (a_dir->stat_info->st_mtime > b_dir->stat_info->st_mtime)
+			return (TRUE);
+		if ((a_dir->stat_info->st_mtime == b_dir->stat_info->st_mtime)
+		&& ft_strcmp(a_dir->name, b_dir->name) < 0)
 			return (TRUE);
 	}
 	return (FALSE);

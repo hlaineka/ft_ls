@@ -42,5 +42,5 @@ char		*ft_strnchr(const char *src, int c)
 	char	*returnable;
 
 	returnable = ft_strsub(src, 0, last_occurance(src, c));
-	return(returnable);
+	return (returnable);
 }

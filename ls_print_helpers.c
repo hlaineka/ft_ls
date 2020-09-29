@@ -6,7 +6,7 @@
 /*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 15:45:59 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/29 12:22:39 by hlaineka         ###   ########.fr       */
+/*   Updated: 2020/09/29 14:42:33 by hlaineka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,11 @@ char	get_filetype(struct stat *buffer)
 char	*getowner(struct stat *buffer)
 {
 	struct passwd	*user_info;
-	char			*returnable;
 
 	if ((user_info = getpwuid(buffer->st_uid)))
-		returnable = ft_strdup(user_info->pw_name);
+		return (user_info->pw_name);
 	else
-		returnable = (ft_itoa(buffer->st_uid));
-	return (returnable);
+		return (ft_itoa(buffer->st_uid));
 }
 
 /*
@@ -104,11 +102,9 @@ char	*getowner(struct stat *buffer)
 char	*getgroup(struct stat *buffer)
 {
 	struct group	*group_info;
-	char			*returnable;
 
 	if ((group_info = getgrgid(buffer->st_gid)))
-		returnable = ft_strdup(group_info->gr_name);
+		return (group_info->gr_name);
 	else
-		returnable =  (ft_itoa(buffer->st_gid));
-	return (returnable);
+		return (ft_itoa(buffer->st_gid));
 }
