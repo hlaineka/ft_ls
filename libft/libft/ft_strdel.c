@@ -6,11 +6,11 @@
 /*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 10:09:52 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/05/19 09:15:36 by helvi            ###   ########.fr       */
+/*   Updated: 2021/03/20 18:25:34 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** Frees the string give as parameter and sets the pointer to NULL

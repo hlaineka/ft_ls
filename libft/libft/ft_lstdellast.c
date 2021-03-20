@@ -3,25 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdellast.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 20:28:08 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/16 20:28:10 by hlaineka         ###   ########.fr       */
+/*   Updated: 2021/03/20 18:44:41 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 void	ft_lstdellast(t_list **first)
 {
-	t_list	*temp;
 	t_list	*last;
 
-	temp = NULL;
-	last = first;
+	last = *first;
 	while (last != NULL && last->next != NULL)
 	{
-		temp = last;
 		last = last->next;
 	}
 }

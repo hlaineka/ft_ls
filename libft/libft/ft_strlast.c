@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 10:42:46 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/06/18 10:42:48 by hlaineka         ###   ########.fr       */
+/*   Updated: 2021/03/20 18:26:13 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** Finds the last character of string and returns it.

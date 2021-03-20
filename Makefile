@@ -3,61 +3,68 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+         #
+#    By: helvi <helvi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 12:00:35 by hlaineka          #+#    #+#              #
-#    Updated: 2020/09/29 14:20:33 by hlaineka         ###   ########.fr        #
+#    Updated: 2021/03/20 18:20:02 by helvi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_ls
 
-SRC = ft_ls.c ls_print.c ls_sort.c ls_helpers.c ls_dirlist.c ls_print_helpers.c \
+CC = gcc
+
+CFLAGS = -Wall -Wextra -Werror -g -I$(DIR_INC) -Ilibft/includes
+TERMCAPS = -ltermcap
+
+DIR_INC = includes/
+DIR_MAIN = ./
+DIR_OBJS = objs/
+
+_SRC_MAIN = ft_ls.c ls_print.c ls_sort.c ls_helpers.c ls_dirlist.c ls_print_helpers.c \
 ls_dirlist2.c ls_dirlist3.c ls_helpers2.c
 
-OSRC = $(SRC:.c=.o)
+SRC_MAIN = $(addprefix $(DIR_MAIN), $(_SRC_MAIN))
 
-INC_LS = includes/ft_ls.h
+SRC = $(SRC_MAIN)
 
+_SRC = $(_SRC_MAIN)
 
+OBJ_FILES = $(_SRC:.c=.o)
 
-LIB_FT = libft/libft.a
+OBJS = $(patsubst %, $(DIR_OBJS)%, $(_SRC:.c=.o))
 
-all: $(NAME)
+_INC = 	ft_ls.h
 
-$(NAME): fclean
-	@cd libft && make
-	@gcc -Wall -Wextra -Werror $(LIB_FT) $(SRC) -o $(NAME) -I$(INC_LS)
-	@make clean
+INC = $(addprefix $(DIR_INC), $(_INC))
 
-debug:
-	@cd libft && make
-	@gcc -Wall -Wextra -Werror $(LIB_FT) $(SRC) -o $(NAME) -I$(INC_LS) -g
-	@make clean
+all: libft $(NAME)
 
-lib: fclean
-	@cd libft && make
-	@make clean
+$(NAME): $(DIR_OBJS) $(OBJS) libft
+		$(CC) $(CFLAGS) -o $(NAME) $(OBJS) libft.a
 
-ft:	
-	@gcc $(LIB_FT) ft_ls.c -o $(NAME) -I$(INC_LS)
+$(DIR_OBJS):
+		make -C libft
+		cp libft/libft.a .
+		mkdir -p $(DIR_OBJS)
 
-main2: fclean
-	@cd libft && make
-	@gcc $(LIB_FT) get_started1.c -o test2 -I$(INC_LS)
-	@make clean
+$(DIR_OBJS)%.o: $(DIR_MAIN)%.c $(INC)
+		$(CC) $(CFLAGS) -o $@ -c $<
 
-main3: fclean
-	@cd libft && make
-	@gcc $(LIB_FT) get_started2.c -o test3 -I$(INC_LS)
-	@make clean
+libft:
+	make -C libft
+	cp libft/libft.a .
 
 clean:
-	@rm -f $(OSRC)
+	@make -C libft clean
+	@rm -f $(OBJS)
+	@rm -f libft.a
+	@echo library object files removed.
 
-fclean: clean
+fclean:
+	@make -C libft fclean
 	@rm -f $(NAME)
-
-mclean: fclean
+	@rm -rf $(DIR_OBJS)
+	@echo library .a file removed. Object folder removed.
 
 re: fclean all

@@ -6,11 +6,11 @@
 /*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 11:25:15 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/05/19 09:13:52 by helvi            ###   ########.fr       */
+/*   Updated: 2021/03/20 18:24:13 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** frees ap and sets its pointer to NULL

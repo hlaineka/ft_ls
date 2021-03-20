@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ls_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 16:16:25 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/29 15:23:25 by hlaineka         ###   ########.fr       */
+/*   Updated: 2021/03/20 18:55:34 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,11 @@ int		sort_file_time(t_list *a, t_list *b)
 		return (TRUE);
 	if (a_file->stat_info->st_mtime == b_file->stat_info->st_mtime)
 	{
-		if (a_file->stat_info->st_mtimespec.tv_nsec
-		> b_file->stat_info->st_mtimespec.tv_nsec)
+		if (a_file->stat_info->st_mtim.tv_nsec
+		> b_file->stat_info->st_mtim.tv_nsec)
 			return (TRUE);
-		if (a_file->stat_info->st_mtimespec.tv_nsec
-		== b_file->stat_info->st_mtimespec.tv_nsec
+		if (a_file->stat_info->st_mtim.tv_nsec
+		== b_file->stat_info->st_mtim.tv_nsec
 		&& ft_strcmp(a_file->name, b_file->name) < 0)
 			return (TRUE);
 	}

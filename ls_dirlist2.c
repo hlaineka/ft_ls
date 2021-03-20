@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ls_dirlist2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 10:23:24 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/29 12:51:30 by hlaineka         ###   ########.fr       */
+/*   Updated: 2021/03/20 18:56:54 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ void		add_to_list(struct dirent *dirent_buf, struct stat *stat_buf,
 			t_params *params, t_list **first_directory)
 {
 	t_file			*new_file;
-	t_directory		*temp_dir;
 
 	new_file = (t_file*)malloc(sizeof(t_file));
 	new_file->stat_info = stat_buf;
-	temp_dir = (t_directory*)(ft_lstend(*first_directory))->content;
 	new_file->name = ft_strdup(dirent_buf->d_name);
 	new_file->is_dir = (dirent_buf->d_type == DT_DIR) ? 1 : 0;
 	add_file(new_file, params, *first_directory);

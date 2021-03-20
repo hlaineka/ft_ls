@@ -6,11 +6,11 @@
 /*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:08:44 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/05/19 09:14:27 by helvi            ###   ########.fr       */
+/*   Updated: 2021/03/20 18:24:43 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** prints int n to fd

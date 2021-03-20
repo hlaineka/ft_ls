@@ -6,11 +6,11 @@
 /*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 10:31:36 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/05/19 09:13:43 by helvi            ###   ########.fr       */
+/*   Updated: 2021/03/20 18:51:31 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** compares the first num bytes of the two ptr:s and returns zero if they
@@ -29,5 +29,5 @@ int	ft_memcmp(const void *ptr1, const void *ptr2, size_t num)
 	if (temp_ptr1[0] != temp_ptr2[0] || num == 1)
 		return (temp_ptr1[0] - temp_ptr2[0]);
 	else
-		return (ft_memcmp(&ptr1[1], &ptr2[1], num - 1));
+		return (ft_memcmp((void*)&temp_ptr1[1], (void*)&temp_ptr2[1], num - 1));
 }

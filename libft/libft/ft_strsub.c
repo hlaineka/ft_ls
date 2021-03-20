@@ -6,11 +6,11 @@
 /*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 12:23:25 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/05/19 09:20:53 by helvi            ###   ########.fr       */
+/*   Updated: 2021/03/20 18:27:39 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** Allocates and returns a "fresh" substring from the string given as argument.

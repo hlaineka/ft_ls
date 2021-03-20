@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstend.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 20:11:01 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/16 20:11:03 by hlaineka         ###   ########.fr       */
+/*   Updated: 2021/03/20 18:23:12 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** Finds the last element of the list.

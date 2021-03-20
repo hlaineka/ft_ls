@@ -6,11 +6,11 @@
 /*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 12:32:47 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/05/19 09:13:57 by helvi            ###   ########.fr       */
+/*   Updated: 2021/03/20 18:24:17 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** copies num characters from dest to src. works also on overlapping memory

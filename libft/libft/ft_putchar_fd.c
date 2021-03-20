@@ -6,11 +6,11 @@
 /*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 12:46:32 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/05/19 09:14:06 by helvi            ###   ########.fr       */
+/*   Updated: 2021/03/20 18:24:25 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** prints character c to fd output

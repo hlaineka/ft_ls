@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstaddtoend.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 16:35:53 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/24 16:38:32 by hlaineka         ###   ########.fr       */
+/*   Updated: 2021/03/20 18:43:56 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-#include "../../includes/ft_ls.h"
+#include "libft.h"
 
 /*
 ** Adds given content to the end of the list.

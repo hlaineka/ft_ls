@@ -6,11 +6,11 @@
 /*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 12:34:18 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/05/19 09:15:42 by helvi            ###   ########.fr       */
+/*   Updated: 2021/03/20 18:25:38 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** creates a new string and copies the content of s to it.Returns the new str

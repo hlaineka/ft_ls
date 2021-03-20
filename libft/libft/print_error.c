@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlaineka <hlaineka@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 20:14:47 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/09/23 20:15:01 by hlaineka         ###   ########.fr       */
+/*   Updated: 2021/03/20 18:28:05 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 void	print_error(char *directory_name)
 {

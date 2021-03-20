@@ -6,7 +6,7 @@
 /*   By: helvi <helvi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 10:02:18 by hlaineka          #+#    #+#             */
-/*   Updated: 2020/05/22 09:48:04 by helvi            ###   ########.fr       */
+/*   Updated: 2021/03/20 18:53:53 by helvi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 static char	*float_width(char *string, int width, t_tags *command)
 {
 	char	*returnable;
-	int		i;
 
-	i = 0;
 	if ((int)ft_strlen(string) < width)
 	{
 		if (command->flag_zero && !command->flag_minus
